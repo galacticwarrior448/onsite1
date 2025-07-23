@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readarray -t files < <(ls -lTtr | awk '{print $10,$6,$7,$9 }')
+readarray -t files < <(ls -lTtrR | awk '{print $10,$6,$7,$9 }')
 
 declare -A groupfiles
 for file in "${files[@]}"; do
@@ -20,7 +20,7 @@ done
 
 
 
-echo -e "The most active months are \n $(ls -lTtr | awk '{print $7, $9}' | sort | uniq -c | sort -rn | head -n 5 | awk '{print $1 " files " $2 $3}')"
+echo -e "The most active months are \n $(ls -lTtrR | awk '{print $7, $9}' | sort | uniq -c | sort -rn | head -n 5 | awk '{print $1 " files " $2 $3}')"
 
 echo -e "The most common file extensions are \n $(find . -type f | sed 's/.*\///' | sed 's/.*\.//' | sort | uniq -c | sort -r | head -n 10 | awk '{print $1 " files of type ."$2}')";
 
