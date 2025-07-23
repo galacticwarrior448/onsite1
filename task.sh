@@ -13,8 +13,8 @@ done;
 			
 for date in $(echo "${!groupfiles[@]}" | tr ' ' '\n' | sort -t- -k1,1n -k2,2M); do
 	echo $date
-	echo -ne "${groupfiles[$date]}"
-	echo
+	echo -e "${groupfiles[$date]}"
+	
 	
 done  
 
