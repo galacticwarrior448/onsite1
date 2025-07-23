@@ -26,7 +26,7 @@ echo -e "The most common file extensions are \n $(find . -type f | sed 's/.*\///
 
 echo -e "The largest files are \n $(ls -lR | awk '{print $5,$9}' | sort -nr | head -n 5)"
 
-echo -e "the Most Open files are $(ls -l | awk '{print $1, $9}' | awk '/rwx@/') and closed are $(ls -l | awk '{print $1, $9}' | awk '/------@/')"
+echo -e "the Most Open files are $(ls -lR | awk '{print $1, $9}' | awk '/rwx@/') and closed are $(ls -lR | awk '{print $1, $9}' | awk '/------@/')"
 
 
 
